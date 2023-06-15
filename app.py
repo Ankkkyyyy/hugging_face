@@ -16,6 +16,11 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 st.title('Sentiment Analysis Tool')
 
+st.markdown("Whether it's customer feedback, social media posts, product reviews, \
+        or any other form of text, our tool can help you extract valuable insights\
+         and understand the underlying sentiment.")
+
+
 st.subheader('Vadar Sentiment')
 
 text = st.text_input('Enter comment :')
@@ -43,9 +48,9 @@ def sentiment(text):
 if click:
    sentiment(text)
 
-st.header("Hugging Face Sentiment Analysis ")
+# st.header("Hugging Face Sentiment Analysis ")
 
-
+st.subheader("Mood Sentiment")
 
 
 import requests
