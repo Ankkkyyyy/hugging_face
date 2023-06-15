@@ -56,7 +56,9 @@ st.subheader("Mood Sentiment")
 import requests
 API_URL =  "https://api-inference.huggingface.co/models/j-hartmann/emotion-english-distilroberta-base"
 
-headers = {"Authorization": f"Bearer"+st.secrets['HuggingFace']}
+# headers = {"Authorization": f"Bearer"+st.secrets['HuggingFace']}
+headers = {"Authorization": f"Bearer {st.secrets['HuggingFace']}"}
+
 # headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
 def query(payload):
