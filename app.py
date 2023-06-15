@@ -5,7 +5,6 @@ from vaderSentiment.vaderSentiment import  SentimentIntensityAnalyzer
 import dotenv 
 import os 
 import plotly.express as px
-import json
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -15,9 +14,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 st.title('Sentiment Analysis Tool')
-st.get_option('theme.backgroundColor')
-st.get_option('theme.base')
-st.get_option('theme.secondaryBackgroundColor')
+
 st.markdown("Whether it's customer feedback, social media posts, product reviews, \
         or any other form of text, our tool can help you extract valuable insights\
          and understand the underlying sentiment.")
@@ -41,11 +38,11 @@ def sentiment(text):
     obj = SentimentIntensityAnalyzer()
     senti_dict = obj.polarity_scores(text)
     if senti_dict['compound']>0.05:
-        st.write("😁 Postive")
+        st.markdown("😁 yellow[Postive]")
     elif senti_dict['compound']<=-0.05:
-        st.write("Negative :( ")
+        st.write("red[Negative] :( ")
     else:
-        st.write("Neutral !")
+        st.write("green[Neutral]")
 
 if click:
    sentiment(text)
