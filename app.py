@@ -114,7 +114,8 @@ def sentiment_HF(text):
         # st.write(output)
         return output
     except:
-        st.write("Some Problem Occured, Will be back soon. ")
+        # st.write("Some Problem Occured, Will be back soon. ")
+        print()
       
 
 data=sentiment_HF(text2)
