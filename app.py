@@ -5,7 +5,7 @@ from vaderSentiment.vaderSentiment import  SentimentIntensityAnalyzer
 import dotenv 
 import os 
 import plotly.express as px
-st.set_theme('dark')
+
 
 hide_st_style = """
             <style>
@@ -17,6 +17,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 st.title('Sentiment Analysis Tool')
 st.set_page_config("FeelingsEvaluator")
+st.set_theme('dark')
 
 st.markdown("Whether it's customer feedback, social media posts, product reviews, \
         or any other form of text, our tool can help you extract valuable insights\
