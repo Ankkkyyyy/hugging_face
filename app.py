@@ -16,7 +16,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 st.title('Sentiment Analysis Tool')
-st.set_page_config("FeelingsEvaluator")
+# st.set_page_config("FeelingsEvaluator")
 st.set_theme('dark')
 
 st.markdown("Whether it's customer feedback, social media posts, product reviews, \
@@ -30,8 +30,8 @@ text = st.text_input('Enter comment :')
 click = st.button('Generate')
 
 
-dotenv.load_dotenv()
-API_TOKEN=os.getenv("HuggingFace")
+# dotenv.load_dotenv()
+# API_TOKEN=os.getenv("HuggingFace")
 # print(text)
 # txt = 'I love India'
 # obj = SentimentIntensityAnalyzer()
@@ -114,7 +114,7 @@ def sentiment_HF(text):
         # st.write(output)
         return output
     except:
-      print()
+        st.write("Some Problem Occured, Will be back soon. ")
       
 
 data=sentiment_HF(text2)
@@ -148,4 +148,4 @@ if click2:
         
       
    except:
-       print()
+       st.write("2.Some Problem Occured, Will be back soon. ")
