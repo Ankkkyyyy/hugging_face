@@ -71,7 +71,7 @@ def query(payload):
 # print(output)
 
 text2 = st.text_input('Enter comment :',key='txt_input2')
-click2 = st.button('Generate',key='btn2')
+click2 = st.button('Generate & Visualize',key='btn2')
 
 def sentiment_HF(text):
     try:
@@ -114,30 +114,35 @@ def sentiment_HF(text):
       print()
       
 
-# data = json.loads(output)["data"]
-
-# Convert JSON data to a pandas DataFrame
-# df = pd.DataFrame(data)
 data=sentiment_HF(text2)
 print(data)
 
-#   if not df.empty:
-if data:
-    option = st.selectbox( 'Visualize Insight:',('bar', 'dataframe','scatter'))
-    click3 = st.button("Plot Graph",key='click3')
-    if click3:
-            if option =='bar':
-                    df = pd.DataFrame(data[0])
-                    fig = px.bar(df, x="label", y="score")
-                    st.plotly_chart(fig)
-            elif option =='dataframe':
-                # df = pd.DataFrame(data[0])
-                # st.dataframe(data)   
-                df = pd.json_normalize(data[0])
-                st.dataframe(df)
-            elif option=='scatter':
-                df = pd.DataFrame(data[0])
-                fig = px.scatter(df, x="label", y="score")
-                st.plotly_chart(fig)
+
+if click2:
+   try:
+        df = pd.DataFrame(data[0]) 
+        df = df.rename(columns={"label": "emotion"})     
+        st.subheader("Bar Chart")              
+        fig = px.bar(df, x="emotion", y="score")
+        st.plotly_chart(fig)
+                
+
+        st.subheader("Line Chart")         
+        fig = px.line(df, x="emotion", y="score")
+        st.plotly_chart(fig)     
         
- 
+        st.subheader("Dataframe")              
+        st.dataframe(df)
+
+        st.subheader("Scatter Chart")         
+        fig = px.scatter(df, x="emotion", y="score")
+        st.plotly_chart(fig)
+
+        st.subheader("Pie Chart")         
+        fig = px.pie(df, names="emotion", values="score")
+        st.plotly_chart(fig)
+                
+        
+      
+   except:
+       print()
