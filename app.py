@@ -15,7 +15,9 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 st.title('Sentiment Analysis Tool')
-
+st.get_option('theme.backgroundColor')
+st.get_option('theme.base')
+st.get_option('theme.secondaryBackgroundColor')
 st.markdown("Whether it's customer feedback, social media posts, product reviews, \
         or any other form of text, our tool can help you extract valuable insights\
          and understand the underlying sentiment.")
