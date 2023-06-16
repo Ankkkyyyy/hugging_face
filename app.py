@@ -42,11 +42,11 @@ def sentiment(text):
     obj = SentimentIntensityAnalyzer()
     senti_dict = obj.polarity_scores(text)
     if senti_dict['compound']>0.05:
-        st.markdown("😁 yellow[Postive]")
+        st.markdown("😁 :yellow[Postive]")
     elif senti_dict['compound']<=-0.05:
-        st.write("red[Negative] :( ")
+        st.markdown(" :red[Negative] :( ")
     else:
-        st.write("green[Neutral]")
+        st.markdown(":green[Neutral]")
 
 if click:
    sentiment(text)
